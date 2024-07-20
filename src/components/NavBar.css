@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: #fff;
+  width: 100%;
+  padding: 0 20px; /* Add padding for better alignment */
+}
+
+.brand-logo {
+  width: 150px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure the margin auto works */
+}
+
+.navbar-links {
+  flex: 1; /* Allows the links container to grow */
+  display: flex;
+  justify-content: center; /* Centers the links horizontally */
+}
+
+.navbar-links ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-links li {
+  margin: 0 15px; /* Space between navigation items */
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 1rem;
+  display: block;
+}
+
+.navbar-links li:hover::before {
+  background-size: 110%;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 31px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  background-color: white;
+  height: 3px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.active .toggle-button .bar:nth-child(1) {
+  transform: rotate(-45deg);
+  position: relative;
+  margin-left: 0;
+  margin-bottom: -8px;
+}
+
+.active .toggle-button .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.active .toggle-button .bar:nth-child(3) {
+  transform: rotate(45deg);
+  position: relative;
+  margin-left: 0px;
+  margin-top: -10px;
+}
+
+@media (max-width: 600px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-links li {
+    text-align: center;
+    margin: 10px 0; /* Space between items in mobile view */
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}
